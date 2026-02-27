@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+title: "Base Advancement (BA) and Base Advancement Prevention (BAP)"
+message: "If you use this software, please cite it as below."
+type: software
+authors:
+  - family-names: Kuleck
+    given-names: Gary
+    orcid:https://orcid.org/0009-0009-7869-5977
+repository-code: https://github.com/your-username/base-advancement-metric
+version: 1.0
+date-released: 2026-02-26
+abstract: >
+  Base Advancement (BA) and Base Advancement Prevention (BAP) are state-based
+  baseball metrics designed to measure batter-driven baserunner advancement
+  and pitcher-driven suppression of advancement, independent of run or win outcomes.
+keywords:
+  - baseball
+  - sabermetrics
+  - run expectancy
+  - situational hitting
+  - pitching
+license: MIT

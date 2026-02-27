@@ -1,0 +1,85 @@
+---
+title: "BA/BAP Report (v1.0)"
+output: html_document
+params:
+  input_dir: "D:/APBA 22 Os CGPT/Data/Series_1_Series_2_Os_2022"
+  output_dir: "D:/APBA 22 Os CGPT/Data/Series_1_Series_2_Os_2022/processed_output"
+  run_engine: false
+  overwrite_outputs: false
+  timestamp_outputs: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = TRUE, message = TRUE)
+
+source("engine_BA_BAP_v1.0.R")
+
+if (isTRUE(params$run_engine)) {
+  run_engine(
+    input_dir = params$input_dir,
+    output_dir = params$output_dir,
+    write_per_game = FALSE,
+    overwrite_outputs = isTRUE(params$overwrite_outputs),
+    timestamp_outputs = isTRUE(params$timestamp_outputs)
+  )
+}
+
+out_dir <- params$output_dir
+
+latest <- function(prefix) {
+  f <- list.files(out_dir, pattern = paste0("^", prefix, ".*\\.csv$"), full.names = TRUE)
+  if (length(f) == 0) stop("No files matching: ", prefix, " in ", out_dir)
+  f[which.max(file.info(f)$mtime)]
+}
+
+combined_path <- latest("all_games_combined")
+leader_path   <- latest("leaderboard")
+pitcher_path  <- latest("pitcher_BAP_leaderboard")
+series_path   <- latest("series_summary")
+
+all_games <- readr::read_csv(combined_path, show_col_types = FALSE)
+leaderboard <- readr::read_csv(leader_path, show_col_types = FALSE)
+pitchers <- readr::read_csv(pitcher_path, show_col_types = FALSE)
+series_summary <- readr::read_csv(series_path, show_col_types = FALSE)
+```
+
+## Inputs and Outputs
+
+- Input folder: `r params$input_dir`
+- Output folder: `r params$output_dir`
+
+Latest outputs loaded:
+
+- `r basename(combined_path)`
+- `r basename(leader_path)`
+- `r basename(pitcher_path)`
+- `r basename(series_path)`
+
+## Series Summary (per game)
+
+```{r}
+knitr::kable(series_summary)
+```
+
+## Batter Leaderboard (top 25 by BA_per_MaxOpp)
+
+```{r}
+leaderboard %>%
+  dplyr::arrange(dplyr::desc(BA_per_MaxOpp), dplyr::desc(BA)) %>%
+  dplyr::slice_head(n = 25) %>%
+  knitr::kable()
+```
+
+## Pitcher BAP Leaderboard (top 25 by BAP_per_MaxOpp)
+
+```{r}
+pitchers %>%
+  dplyr::arrange(dplyr::desc(BAP_per_MaxOpp), dplyr::desc(BAP)) %>%
+  dplyr::slice_head(n = 25) %>%
+  knitr::kable()
+```
+
+## Notes
+
+- This report reads the *latest* timestamped CSVs in the output folder by modification time.
+- Set `params$run_engine: true` if you want the report knit to regenerate outputs.
