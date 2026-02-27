@@ -1,5 +1,9 @@
 Measuring What Happens Between the Bases
 
+Abstract (Sabermetrics Version)
+
+Base Advancement (BA) and Base Advancement Prevention (BAP) are process-oriented baseball metrics designed to quantify baserunner movement attributable to batter or pitcher agency, independent of run or win context.   Unlike RE24 or WPA, BA/BAP deliberately exclude leverage and outcome weighting in order to isolate how effectively players convert baserunner opportunities into positional advancement or suppression.   Scoring is state-aware, opportunity-normalized, and frozen at v1.0 to support replication and critique. Initial validation using a limited 2022 Baltimore Orioles sample demonstrates meaningful correlation with runs scored and allowed while capturing distinct information not present in traditional slash-line or context-weighted metrics.
+
 Introducing the Base Advancement (BA) and Base Advancement Prevention (BAP) Metrics
 
 Modern baseball analytics has become very good at measuring outcomes—runs, wins, expected runs, leverage, and value. But one part of the game remains surprisingly under-measured: what actually happens to baserunners during a plate appearance, independent of whether those movements immediately lead to runs or wins.
@@ -117,5 +121,6 @@ baserunning value
 separating agency from context
 
 or simply testing a new way to think about offense and pitching
+
 
 —you are invited to explore, critique, and extend the work.
