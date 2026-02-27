@@ -62,7 +62,7 @@ base-advancement-metric/
 │   └── report_BA_BAP_v1.0.Rmd
 │
 ├── docs/
-│   ├── REVISION_BIBLE.md
+│   ├── REVISION_GUIDE.md
 │   ├── SCORING_LOGIC_EVOLUTION.md
 │   ├── QUIZ_OUTCOMES_v2.md
 │   ├── WHY_BA_NOT_WPA.md
@@ -149,3 +149,4 @@ This project is released under the MIT License.
 ## Author
 Gary Kuleck  
 ORCID: https://orcid.org/0009-0009-7869-5977
+
