@@ -146,7 +146,28 @@ This project is released under the MIT License.
 - Developed with the assistance of AI tools, with full human oversight
 
 
+## Additional Documentation
+
+- 📘 Methodology overview and motivation:  
+  - [`docs/EXPLAINER.md`](docs/EXPLAINER.md)
+
+- ⚖️ Metric philosophy and comparisons:  
+  - [`docs/WHY_BA_NOT_WPA.md`](docs/WHY_BA_NOT_WPA.md)
+
+- 🚧 Limitations, caveats, and intended use cases:  
+  - [`docs/LIMITATIONS_AND_USE_CASES.md`](docs/LIMITATIONS_AND_USE_CASES.md)
+
+- 🧠 Scoring logic evolution and design decisions:  
+  - [`docs/SCORING_LOGIC_EVOLUTION.md`](docs/SCORING_LOGIC_EVOLUTION.md)
+
+- 📝 Validation exercises and scoring quizzes:  
+  - [`docs/QUIZ_OUTCOMES_v1.md`](docs/QUIZ_OUTCOMES_v1.md)
+
+- 🔁 Project revision history:  
+  - [`docs/REVISION_GUIDE.md`](docs/REVISION_GUIDE.md)
+
 ## Author
 Gary Kuleck  
 ORCID: https://orcid.org/0009-0009-7869-5977
+
 
